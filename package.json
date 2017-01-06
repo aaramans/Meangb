@@ -1,0 +1,31 @@
+{
+    "name": "GulpEx",
+    "version": "0.1.0",
+    "description": "Building an App with Mongo, Express, Angular, Node, Gulp and Bower",
+    "authors": "Aditya Ananta Raman S",
+    "homepage" : "https://github.com/aaramans/Meangb",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/aaramans/Meangb.git"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "del": "^2.2.2",
+        "gulp": "latest",
+        "gulp-autoprefixer": "^3.1.1",
+        "gulp-coffee": "latest",
+        "gulp-concat": "latest",
+        "gulp-connect": "latest",
+        "gulp-inject": "^4.2.0",
+        "gulp-jscs": "^4.0.0",
+        "gulp-jshint": "^2.0.4",
+        "gulp-load-plugins": "^1.4.0",
+        "gulp-nodemon": "^2.2.1",
+        "gulp-plumber": "^1.1.0",
+        "gulp-sass": "latest",
+        "gulp-uglify": "latest",
+        "gulp-util": "latest",
+        "jshint": "^2.9.4",
+        "wiredep": "^4.0.0"
+    }
+}
