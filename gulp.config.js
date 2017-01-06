@@ -7,7 +7,7 @@ module.exports = function(){
         filePaths : {
             allJs : client + 'sripts/*.js',
             jsDest : client + 'assets/js',
-            allSass : client + 'styles/sass/*.scss',
+            allSass : client + 'styles/*.scss',
             cssDest : client + 'assets/css',
             html : client + 'index.html',
             server : server,
