@@ -1,11 +1,11 @@
 module.exports = function(){
     var client = 'client/',
-        clientApp = client + 'app/',
+        clientApp = client + 'assets/',
         server = 'server/';
     
     var config = {
         filePaths : {
-            allJs : client + 'sripts/*.js',
+            allJs : client + 'scripts/*.js',
             jsDest : client + 'assets/js',
             allSass : client + 'styles/*.scss',
             cssDest : client + 'assets/css',
@@ -15,9 +15,8 @@ module.exports = function(){
         client : client,
         jsConcatFname : 'scripts.js',
         jsForInject : [
-            clientApp + '**/*.module.js',
-            clientApp + '**/*.js', 
-            '!' + clientApp + '**/*.js'
+            clientApp + 'js/*.js'//,
+            /*clientApp + '***.js','!' + clientApp + '***.js'*/
         ],
         cssForInject : client + 'assets/css/app.css',
         bower : {

@@ -37,8 +37,8 @@ gulp.task('lint', function () {
     return gulp.src(config.filePaths.allJs)
 		.pipe($g.jscs())
         .pipe($g.jshint())
-        .pipe($g.jshint.reporter('jshint-stylish', {verbose: true}))
-		.pipe($g.jshint.reporter('fail'));
+        //.pipe($g.jshint.reporter('jshint-stylish', {verbose: true}))
+		.pipe($g.jshint.reporter('default'));
 });
 
 gulp.task('watch', function () {
@@ -50,7 +50,7 @@ gulp.task('watch', function () {
 gulp.task('wiredep', function () {
     log('wire up bower css and js and appjs into html');
     var options = config.getDefOptWiredep(),
-        wiredep = require('wiredep').stream();
+        wiredep = require('wiredep').stream;
     
     return gulp
         .src(config.filePaths.html)
