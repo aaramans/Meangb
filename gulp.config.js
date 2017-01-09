@@ -14,6 +14,7 @@ module.exports = function(){
         },
         client : client,
         jsConcatFname : 'scripts.js',
+        cssConcatFname : 'app.css',
         jsForInject : [
             clientApp + 'js/*.js'//,
             /*clientApp + '***.js','!' + clientApp + '***.js'*/
@@ -25,7 +26,8 @@ module.exports = function(){
             ignorepath : '../..'
         },
         nodeServer : server + 'app.js',
-        defaultPort : 4545
+        defaultPort : 4545,
+        browserReloadDelay : 1000
     };
     
     config.getDefOptWiredep = function(){
