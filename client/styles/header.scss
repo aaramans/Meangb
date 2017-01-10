@@ -1,39 +1,38 @@
-$navbarColor : #006bb3;
-$white : #ffffff;
-$anchor-hover-color : #555555;
-$transparent : transparent;
-
-.wrapper{
-    .navbar-default{
-        background-color : $navbarColor;
-        border-color : $navbarColor;
-        .navbar-brand{
-            color : $white;
+$navbarColor: #006bb3;
+$white: #ffffff;
+$anchor-hover-color: #555555;
+$transparent: transparent;
+.wrapper {
+    .navbar-default {
+        background-color: $navbarColor;
+        border-color: $navbarColor;
+        .navbar-brand {
+            color: $white;
         }
         .navbar-nav {
             li {
-                a{
-                    color : $white;
-                    &:hover{
+                a {
+                    color: $white;
+                    &:hover {
                         color: $anchor-hover-color;
                         background-color: $white;
                     }
                 }
-                .navbar-text{
-                    color : $white;
-                    a:hover{
-                        color : $white;
+                .navbar-text {
+                    color: $white;
+                    a:hover {
+                        color: $white;
                         background-color: $transparent;
                     }
                 }
             }
-            .open > a{
+            .open > a {
                 color: $anchor-hover-color;
-                background-color :  $white;
+                background-color: $white;
             }
         }
-        .dropdown-menu{
-            background-color : $navbarColor;
+        .dropdown-menu {
+            background-color: $navbarColor;
         }
     }
 }

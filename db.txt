@@ -1,0 +1,64 @@
+Admin
+	uId
+	fname
+	lname
+	uname
+	utype --> Admin / user
+	email
+	address
+	mobile
+	status --> Active / inActive / Archived
+	accessToken
+	memberSince
+	edited
+
+User
+	uId
+	fname
+	lname
+	uname
+	utype --> Admin / user
+	email
+	address
+	mobile
+	status --> Active / inActive / Archived
+	no.of.books
+	accessToken
+	memberSince
+	editedDate
+
+Book
+    bId
+    bname
+    bgenre
+    bauthor
+    bcopies
+    bookIds [bookId]
+    bissuedIds []
+    bavailableIds []
+
+Books
+	bookId
+	bname
+	btype
+	bgenre
+	bauthor
+	status --> Available / issued 	
+	
+Issuings
+	iId
+	bookId
+	uId
+	issuedDate
+	expRetDate
+	status
+    
+Reviews
+    rId
+    uId
+    uName
+    bId
+    bname
+    comment
+    ratings
+    date
