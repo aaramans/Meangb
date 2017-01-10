@@ -2,7 +2,38 @@
   color: blue;
   text-align: center;
 }
-.navbar-default {
+.wrapper .navbar-default {
   background-color: #006bb3;
   border-color: #006bb3;
+}
+
+.wrapper .navbar-default .navbar-brand {
+  color: #ffffff;
+}
+
+.wrapper .navbar-default .navbar-nav li a {
+  color: #ffffff;
+}
+
+.wrapper .navbar-default .navbar-nav li a:hover {
+  color: #555555;
+  background-color: #ffffff;
+}
+
+.wrapper .navbar-default .navbar-nav li .navbar-text {
+  color: #ffffff;
+}
+
+.wrapper .navbar-default .navbar-nav li .navbar-text a:hover {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.wrapper .navbar-default .navbar-nav .open > a {
+  color: #555555;
+  background-color: #ffffff;
+}
+
+.wrapper .navbar-default .dropdown-menu {
+  background-color: #006bb3;
 }

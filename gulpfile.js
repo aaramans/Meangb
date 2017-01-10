@@ -16,13 +16,16 @@ function startBrowserSync(){
     }
 
     gulp.watch(config.filePaths.allSass, ['styles']);
+    gulp.watch(config.filePaths.allJs, ['scripts']);
 
     log('Starting Browser Sync with options...');
     var bSOptions = {
         proxy : "localhost:" + port,
         port : 3000,
         files : [
-            config.client + "assets/**/*.*",
+            config.client + "assets/css/*.*",
+            config.client + "assets/js/*.*",
+            config.client + "index.html"
         ],
         ghostMode : {
             clicks : true,
@@ -55,7 +58,7 @@ gulp.task('clear', function () {
     del(files);
 });
 
-gulp.task('js', function () {
+gulp.task('scripts', function () {
     log('Compiling js...');
 	return gulp.src(config.filePaths.allJs)
 		.pipe($g.uglify())
@@ -74,7 +77,7 @@ gulp.task('lint', function () {
 
 gulp.task('watch', function () {
     log('Found File changes. Triggering compilation...');
-	gulp.watch(config.filePaths.allJs, ['js']);
+	gulp.watch(config.filePaths.allJs, ['scripts']);
 	gulp.watch(config.filePaths.allSass, ['styles']);
 });
 
@@ -98,7 +101,7 @@ gulp.task('inject', ['wiredep', 'styles'], function () {
         .pipe(gulp.dest(config.client));
 });
 
-gulp.task('serve-dev', ['inject'], function () {
+gulp.task('start-server', ['inject'], function () {
     var isDev = true,
         nodeMonOptions = {
             script : config.nodeServer,

@@ -1,1 +1,1 @@
-!function(){"use strict";angular.module("meanApp",[])}();
+!function(){"use strict";var n=angular.module("meanApp",[]);n.controller("NavController",["$scope",function(n){n.isSignedIn=!1,n.userName="Aditya",n.signIn=function(){n.isSignedIn=!0},n.signOut=function(){n.isSignedIn=!1}}])}();
