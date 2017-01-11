@@ -1,7 +1,14 @@
-.wrapper h1 {
-  color: blue;
-  text-align: center;
+
+.wrapper .page-header {
+  margin: 0;
+  padding: 0;
 }
+
+.wrapper .navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
 .wrapper .navbar-default {
   background-color: #006bb3;
   border-color: #006bb3;

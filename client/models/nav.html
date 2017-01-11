@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navCollapseApp" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-university" aria-hidden="true"></i> LMS</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navCollapseApp">
+        <ul class="nav navbar-nav navbar-right" ng-show="isSignedIn">
+            <li>
+                <p class="navbar-text">Signed in as <a href="javascript:void(0);" class="navbar-link">{{userName}}</a></p>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-cogs" aria-hidden="true"></i>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0);"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+                    <li><a href="javascript:void(0);"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="javascript:void(0);" ng-click="signOut();"><i class="fa fa-sign-out" aria-hidden="true"></i> SignOut</a> </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" ng-show="!isSignedIn">
+            <li class="navBtns registerBtn"><a href="javascript:void(0);"><i class="fa fa-user" aria-hidden="true"></i> Register</a></li>
+            <li class="navBtns signInBtn"><a href="javascript:void(0);" ng-click="signIn();"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a></li>
+        </ul>
+    </div>
+</nav>

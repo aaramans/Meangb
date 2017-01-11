@@ -3,10 +3,12 @@ Admin
 	fname
 	lname
 	uname
+    password
 	utype --> Admin / user
 	email
 	address
 	mobile
+    avatarUrl
 	status --> Active / inActive / Archived
 	accessToken
 	memberSince
@@ -17,32 +19,39 @@ User
 	fname
 	lname
 	uname
+    password
 	utype --> Admin / user
 	email
 	address
 	mobile
+    avatarUrl
 	status --> Active / inActive / Archived
 	no.of.books
 	accessToken
 	memberSince
 	editedDate
 
-Book
+Books
     bId
     bname
     bgenre
     bauthor
     bcopies
+    bimages [urls]
     bookIds [bookId]
     bissuedIds []
     bavailableIds []
 
-Books
+Book
 	bookId
 	bname
 	btype
 	bgenre
 	bauthor
+    bpublication
+    bedition
+    bprice
+    bvolume
 	status --> Available / issued 	
 	
 Issuings
@@ -59,6 +68,6 @@ Reviews
     uName
     bId
     bname
-    comment
-    ratings
+    comments []
+    ratings [1-5]
     date
