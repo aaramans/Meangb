@@ -5,7 +5,7 @@ module.exports = function(){
     
     var config = {
         filePaths : {
-            allJs : client + 'scripts/*.js',
+            allJs : [client + 'scripts/*.js',client + 'scripts/*/*.js'],
             jsDest : client + 'assets/js',
             allSass : client + 'styles/*.scss',
             cssDest : client + 'assets/css',

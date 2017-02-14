@@ -1,37 +1,30 @@
+var app;
 (function () {
     'use strict';
 
-    var app = angular.module('meanApp', []);
+    app = angular.module('meanApp', ['ngRoute', 'ngSanitize', 'ngAnimate', 'ui.bootstrap']);
 
-    app.controller('NavController', ['$scope', function ($scope) {
-        $scope.isSignedIn = false;
-        $scope.user = {};
+    app.config(function ($routeProvider, $locationProvider) {
+        $routeProvider
+            .when("/", {
+                templateUrl: "views/landing.html"
+            }).when("/dashboard", {
+                templateUrl: "views/dashboard.html",
+                controller: "dboardContrl"
+            }).when("/users", {
+                templateUrl: "views/users.html",
+                controller: "userContrl"
+            }).when("/books", {
+                templateUrl: "views/books.html",
+                controller: "bookContrl"
+            }).when("/issues", {
+                templateUrl: "views/issues.html",
+                controller: "issueContrl"
+            });
 
-        $scope.signIn = function () {
-            $scope.signInObj = {};
-            $('.login_box').modal('show');
-        };
-
-        $scope.signOut = function () {
-            $scope.isSignedIn = false;
-        };
-    }]);
-
-    app.directive('loginModal', function(){
-        return {
-            restrict : 'E',
-            replace : true,
-            templateUrl : 'views/login.html',
-            controller : 'NavController',
-            link : function (scope, $elem, $attr) {
-                scope.signInObj = {};
-                scope.signInSubmit = function(isValid){
-                    if(isValid){
-                        console.log('submitting the form',scope.signInObj);
-                        //$scope.isSignedIn = true;
-                    }
-                };
-            }
-        };
-    })
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
+    });
 })();

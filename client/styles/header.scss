@@ -44,3 +44,19 @@ $transparent: transparent;
         }
     }
 }
+
+/*
+* Login Styles
+*/
+
+.login_box{
+    .form-group{
+        &:last-child{
+            margin-bottom: 0px;
+        }
+        span{
+            font-size: 12px;
+            font-weight: bold;
+        }
+    }
+}
