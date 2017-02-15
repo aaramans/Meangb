@@ -99,7 +99,7 @@ gulp.task('wiredep', function () {
         .pipe(gulp.dest(config.client));
 });
 
-gulp.task('inject', ['wiredep', 'styles'], function () {
+gulp.task('inject', ['wiredep', 'styles','scripts'], function () {
     log('Inject app css into html...');
     return gulp
         .src(config.filePaths.html)

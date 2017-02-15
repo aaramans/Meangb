@@ -1,3 +1,5 @@
-app.controller('bookContrl', ['$scope', function ($scope) {
+(function(mod){
+    mod.controller('bookContrl', ['$scope', function ($scope) {
 
-}]);
+    }]);
+})(app);

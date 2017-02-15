@@ -1,11 +1,12 @@
 module.exports = function(){
     var client = 'client/',
         clientApp = client + 'assets/',
-        server = 'server/';
+        server = 'server/',
+        jsFileBase = client + 'scripts/';
     
     var config = {
         filePaths : {
-            allJs : [client + 'scripts/*.js',client + 'scripts/*/*.js'],
+            allJs : [jsFileBase + 'index.js', jsFileBase + 'directives/*.js', jsFileBase + 'services/*.js', jsFileBase + 'controllers/*.js'],
             jsDest : client + 'assets/js',
             allSass : client + 'styles/*.scss',
             cssDest : client + 'assets/css',

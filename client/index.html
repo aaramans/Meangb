@@ -19,10 +19,8 @@
 
 <body>
     <div class="wrapper" ng-app="meanApp">
-        <div class="page-header" ng-controller="NavController" ng-include="'views/nav.html'"></div>
-        <div class="main_container">
-            <ng-view></ng-view>
-        </div>
+        <div class="page-header" ng-controller="NavContrl" ng-include="'views/nav.html'"></div>
+        <div class="main_container" ng-view></div>
         <login-modal></login-modal>
         <footer>&copy;2017</footer>
     </div>

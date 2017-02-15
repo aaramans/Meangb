@@ -1,12 +1,9 @@
-app.controller('dboardContrl', ['$scope', function ($scope) {
-    var data = {
-        "Total Users": 1835,
-        "User Approvals": 8,
-        "User Requests": 25,
-        "Total Books": 5675,
-        "Available Books": 4362,
-        "Books with Users": 1313
-    }
-
-    $scope.dbData = data;
-}]);
+(function () {
+    app.controller('dboardContrl', ['$scope', '$http', function ($scope, $http) {
+        $http.get('models/dashboard.json').then(function(stats){
+            $scope.dbData = stats.data;
+        },function(a,b,c){
+            console.log(a,b,c);
+        });
+    }]);
+})();

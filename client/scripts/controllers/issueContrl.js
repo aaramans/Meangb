@@ -1,3 +1,5 @@
-app.controller('issueContrl', ['$scope', function ($scope) {
+(function () {
+    app.controller('issueContrl', ['$scope', function ($scope) {
 
-}]);
+    }]);
+})();
