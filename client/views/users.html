@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="table-responsive">
+    <div class="table-responsive" ng-if="users.length>0">
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -28,5 +28,8 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div ng-if="users.length===0">
+        <span>No Users found</span>
     </div>
 </div>

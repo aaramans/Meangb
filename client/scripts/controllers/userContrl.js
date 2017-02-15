@@ -1,9 +1,8 @@
 (function () {
-    app.controller('userContrl', ['$scope', '$http', function ($scope, $http) {
-        $http.get('models/users.json').then(function(users){
-            $scope.users = users.data;
-        },function(a,b,c){
-            console.log(a,b,c);
+    app.controller('userContrl', ['$scope', 'serviceCall', function ($scope, serviceCall) {
+        $scope.users = [];
+        serviceCall.fetchData('users').then(function(res){
+            $scope.users = res;
         });
     }]);
 })();
