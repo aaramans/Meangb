@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="wrapper" ng-app="meanApp">
+    <div class="wrapper" ng-app="meanApp" ng-controller="mainContrl">
         <div class="page-header" ng-controller="NavContrl" ng-include="'views/nav.html'"></div>
         <div class="main_container" ng-view></div>
         <login-modal></login-modal>
@@ -34,6 +34,7 @@
     <script src="../bower_components/angular-animate/angular-animate.js"></script>
     <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <!-- endbower-->
 
     <!-- inject:js -->

@@ -1,5 +1,9 @@
 (function () {
-    app.controller('issueContrl', ['$scope', function ($scope) {
+    app.controller('issueContrl', ['$scope', '$location', function ($scope, $location) {
+        if(!$scope.isSignedIn() || $scope.isSignedIn() === 'false'){
+            $location.path('/');
+        }else{
 
+        }
     }]);
 })();

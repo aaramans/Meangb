@@ -1,23 +1,29 @@
 (function () {
-    app.controller('NavContrl', ['$scope', function ($scope) {
+    app.controller('NavContrl', ['$scope', 'localStorageService', '$location', function ($scope, localStorageService, $location) {
         $scope.status = {
-            isSignedIn: false
+            isSignedIn: $scope.isSignedIn()
         };
         $scope.user = {};
 
         $scope.signIn = function () {
             //$('.login_box').modal('show');
-            $scope.status.isSignedIn = true;
+            localStorageService.set('isSignedIn',true);
+            $scope.status.isSignedIn = $scope.isSignedIn();
+            $location.path('/dashboard');
         };
 
         $scope.signOut = function () {
-            $scope.status.isSignedIn = false;
+            localStorageService.clearAll();
+            $scope.status.isSignedIn = $scope.isSignedIn();
+            $location.path('/');
         };
 
         $scope.signInSubmit = function () {
-            console.log('submitting the form', $scope.signInObj);
+            //console.log('submitting the form', $scope.signInObj);
             $('.login_box').modal('hide');
-            $scope.status.isSignedIn = true;
+            localStorageService.set('isSignedIn',true);
+            $scope.status.isSignedIn = $scope.isSignedIn();
+            $location.path('/dashboard');
         };
     }]);
 })();
