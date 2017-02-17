@@ -6,10 +6,9 @@ var app = express();
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var cors = require('cors');
-//var errorHandler = require('./routes/utils/errorHandler')();
-var favicon = require('serve-favicon');
 var logger = require('morgan');
-var port = process.env.PORT || 4545;
+var favicon = require('serve-favicon');
+var port = process.env.PORT || 4000;
 //var routes;
 
 var environment = process.env.NODE_ENV;
@@ -22,18 +21,14 @@ app.use(bodyParser.json());
 app.use(compress());
 app.use(logger('dev'));
 app.use(cors());
-//app.use(errorHandler.init);
 
-//routes = require('./routes/index')(app);
+//routes = require('./routes/index.js')(app);
 
 console.log('About to start the node');
 console.log('PORT=' + port);
 console.log('NODE_ENV=' + environment);
 
-/*app.get('/ping', function(req, res, next) {
-    console.log(req.body);
-    res.send('pong');
-});*/
+//app.post('/login',routes.login);
 
 switch (environment) {
     case 'build':

@@ -11,7 +11,7 @@ module.exports = function(){
             allSass : client + 'styles/*.scss',
             cssDest : client + 'assets/css',
             html : client + 'index.html',
-            server : server,
+            server : client + 'boot.js',
         },
         client : client,
         jsConcatFname : 'scripts.js',
@@ -26,7 +26,7 @@ module.exports = function(){
             directory : './bower_components/',
             ignorepath : '../..'
         },
-        nodeServer : server + 'app.js',
+        nodeServer : client + 'boot.js',
         defaultPort : 4545,
         browserReloadDelay : 1000
     };
