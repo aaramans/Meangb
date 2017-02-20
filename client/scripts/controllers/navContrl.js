@@ -1,5 +1,5 @@
 (function () {
-    app.controller('NavContrl', ['$scope', 'localStorageService', '$location', function ($scope, localStorageService, $location) {
+    app.controller('NavContrl', ['$scope', 'localStorageService', '$location', 'serviceCall', function ($scope, localStorageService, $location, serviceCall) {
         $scope.status = {
             isSignedIn: $scope.isSignedIn()
         };
@@ -7,15 +7,23 @@
 
         $scope.signIn = function () {
             //$('.login_box').modal('show');
-            localStorageService.set('isSignedIn',true);
-            $scope.status.isSignedIn = $scope.isSignedIn();
-            $location.path('/dashboard');
+            var params = {
+                'uname' : 'Aditya',
+                'pwd' : '123456'
+            }
+            serviceCall.postData('login', params, 'on').then(function(res){
+                localStorageService.set('isSignedIn',true);
+                $scope.status.isSignedIn = $scope.isSignedIn();
+                $location.path('/dashboard');
+                toastr.success(res.message);
+            });
         };
 
         $scope.signOut = function () {
             localStorageService.clearAll();
             $scope.status.isSignedIn = $scope.isSignedIn();
             $location.path('/');
+            toastr.success("You have been logged out successfully");
         };
 
         $scope.signInSubmit = function () {

@@ -1,6 +1,10 @@
 (function () {
     app.factory('urlUtil',[function () {
         var config = {
+            'protocol': 'http',
+            'domain': 'localhost',
+            'port': '4000',
+            'login': {'off': 'models/login.json', 'on': 'login'},
             'users' : {'off': 'models/users.json', 'on': 'users/getUsers'},
             'dbData' : {'off': 'models/dashboard.json', 'on': 'dboard/getdbBdata'}
         }, defaultStatus = 'off'; // 'off' for offline and 'on' for online;
@@ -9,9 +13,13 @@
             "url" : function(path,status){
                 status = status ? status : defaultStatus;
                 if(config.hasOwnProperty(path) && path!== 'defaultStatus'){
-                    return config[path][status];
+                    if(status === 'off'){
+                        return config[path][status];
+                    }else{
+                        return config.protocol + '://' + config.domain + ':' + config.port +'/' + config[path][status];
+                    }
                 }else{
-                    return "";
+                    return '';
                 }
             }
         };
