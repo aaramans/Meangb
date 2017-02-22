@@ -16,7 +16,8 @@ routes = require('./routes/index.js');
 
 console.log('About to start the node');
 
-app.post('/login', routes.login);
+app.post('/login', routes.signIn);
+app.post('/logout', routes.signOut);
 app.post('/createAdmin', jsonParser, routes.createAdmin);
 
 app.listen(port, function() {
