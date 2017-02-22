@@ -8,11 +8,11 @@
             <div class="modal-body">
                 <form name="loginFrm" novalidate>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="uname" name="uname" ng-model="signInObj.uname" placeholder="Enter your user name" required>
+                        <input type="text" class="form-control" id="uname" name="uname" ng-model="signInObj.username" placeholder="Enter your user name" required>
                         <span class="text-danger" ng-show="loginFrm.uname.$touched && loginFrm.uname.$error.required">Please Enter your user name</span>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="pswd" name="pswd" ng-model="signInObj.pswd" placeholder="Enter your Password" ng-minlength="6" ng-maxlength="12" required>
+                        <input type="password" class="form-control" id="pswd" name="pswd" ng-model="signInObj.password" placeholder="Enter your Password" ng-minlength="6" ng-maxlength="12" required>
                         <span class="text-warning" ng-show="loginFrm.pswd.$touched && loginFrm.pswd.$error.minlength">Password is too short. Minimum 6-9 chars.</span>
                         <span class="text-warning" ng-show="loginFrm.pswd.$touched && loginFrm.pswd.$error.maxlength">Password is too long. Minimum 6-9 chars.</span>
                         <span class="text-danger" ng-show="loginFrm.pswd.$touched && loginFrm.pswd.$error.required">Please Enter your password</span>

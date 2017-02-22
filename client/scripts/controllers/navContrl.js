@@ -1,22 +1,16 @@
+/*
+* NavContrl is related to header.
+* has all functionalities related to navigation menu
+*/
 (function () {
     app.controller('NavContrl', ['$scope', 'localStorageService', '$location', 'serviceCall', function ($scope, localStorageService, $location, serviceCall) {
         $scope.status = {
             isSignedIn: $scope.isSignedIn()
         };
-        $scope.user = {};
+        $scope.user = $scope.userDetails();
 
         $scope.signIn = function () {
-            //$('.login_box').modal('show');
-            var params = {
-                'uname' : 'Aditya',
-                'pwd' : '123456'
-            }
-            serviceCall.postData('login', params, 'on').then(function(res){
-                localStorageService.set('isSignedIn',true);
-                $scope.status.isSignedIn = $scope.isSignedIn();
-                $location.path('/dashboard');
-                toastr.success(res.message);
-            });
+            $('.login_box').modal('show');
         };
 
         $scope.signOut = function () {
@@ -27,11 +21,17 @@
         };
 
         $scope.signInSubmit = function () {
-            //console.log('submitting the form', $scope.signInObj);
-            $('.login_box').modal('hide');
-            localStorageService.set('isSignedIn',true);
-            $scope.status.isSignedIn = $scope.isSignedIn();
-            $location.path('/dashboard');
+            serviceCall.postData('login', $scope.signInObj, 'on').then(function(res){
+                if(res.status){
+                    localStorageService.set('user',res.response);
+                    localStorageService.set('isSignedIn',true);
+                    $scope.status.isSignedIn = $scope.isSignedIn();
+                    $scope.user = $scope.userDetails();
+                    $('.login_box').modal('hide');
+                    $location.path('/dashboard');
+                }
+                toastr.success(res.message);
+            });
         };
     }]);
 })();
