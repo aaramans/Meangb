@@ -1,4 +1,4 @@
-(function () {
+/*(function () {
     app.directive('loginModal', function () {
         return {
             restrict: 'E',
@@ -8,4 +8,4 @@
             scope: true
         };
     });
-})();
+})();*/

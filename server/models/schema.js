@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
+var autoIncrement = require("mongodb-autoincrement");
 
 var statusValues = ['active', 'inactive', 'archived' , 'blocked'];
 var roleValues = ['admin', 'user'];
 
 exports.User = mongoose.model('User', new mongoose.Schema({
+	uId: {type:String, index: { unique: true }, required: true},
 	firstname: {type:String, required: true},
 	lastname: {type:String, required: true},
 	username: {type:String, index: { unique: true }, required: true},
@@ -17,4 +19,8 @@ exports.User = mongoose.model('User', new mongoose.Schema({
 	accessToken: {type:String, default:''},
 	created: {type: Date, default: Date.now },
 	updated: {type: Date, default: Date.now }
+}).plugin(autoIncrement.mongoosePlugin,{
+    collection: 'User',
+    field: 'uId',
+    step: 1
 }));

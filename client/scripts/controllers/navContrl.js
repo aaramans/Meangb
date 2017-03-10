@@ -3,14 +3,14 @@
 * has all functionalities related to navigation menu
 */
 (function () {
-    app.controller('NavContrl', ['$scope', 'localStorageService', '$location', 'serviceCall', function ($scope, localStorageService, $location, serviceCall) {
+    app.controller('NavContrl', ['$scope', 'localStorageService', '$location', 'serviceCall', '$uibModal', function ($scope, localStorageService, $location, serviceCall, $uibModal) {
         $scope.status = {
             isSignedIn: $scope.isSignedIn()
         };
         $scope.user = $scope.userDetails();
 
         $scope.signIn = function () {
-            $('.login_box').modal('show');
+            $scope.openDialog();
         };
 
         $scope.signOut = function () {
@@ -29,20 +29,42 @@
             });
         };
 
-        $scope.signInSubmit = function () {
+        $scope.openDialog = function () {
+            var modalInstance = $uibModal.open({
+                size : 'sm',
+                openedClass : 'login_box',
+                templateUrl : 'views/login.html',
+                controller : 'modalCtrl'/*,
+                resolve : {
+                    isSignedIn : function() {
+                        console.log('In resolve---', $scope.status.isSignedIn);
+                        return $scope.status.isSignedIn;
+                    }
+                }*/
+            });
+        };
+    }]);
+
+    app.controller('modalCtrl', ['$scope', 'localStorageService', '$location', 'serviceCall', '$uibModalInstance', function ($scope, localStorageService, $location, serviceCall, $uibModalInstance) {
+
+        $scope.ok = function () {
             serviceCall.postData('login', $scope.signInObj, 'on').then(function(res){
                 if(res.status){
                     localStorageService.set('user',JSON.stringify(res.response));
                     localStorageService.set('isSignedIn',true);
                     $scope.status.isSignedIn = $scope.isSignedIn();
                     $scope.user = $scope.userDetails();
-                    $('.login_box').modal('hide');
+                    $uibModalInstance.close($scope.status.isSignedIn);
                     $location.path('/dashboard');
                     toastr.success(res.message);
                 }else{
                     toastr.error(res.message);
                 }
             });
+        };
+
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
     }]);
 })();
